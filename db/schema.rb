@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208194944) do
+ActiveRecord::Schema.define(version: 20170208202955) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "cuisine"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170208194944) do
     t.string   "name"
     t.text     "address"
     t.integer  "capacity"
-    t.integer  "phone"
+    t.string   "phone"
     t.text     "description"
     t.string   "website"
     t.integer  "owner_id"
