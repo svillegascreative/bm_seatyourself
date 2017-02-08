@@ -1,0 +1,7 @@
+<h1>User Reservations/Dashboard?</h1>
+
+  <% @user.reservations.each do |reservation| %>
+    <div>Reservation at: <%= reservation.restaurant %> </div>
+    <div>Time: <%= reservation.datetime %> </div>
+    <div>Location: <%= reservation.restaurant.address %></div>
+<% end %>
