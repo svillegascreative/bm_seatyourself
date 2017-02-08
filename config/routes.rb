@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :reservations
 
+  resources :categories
+
   resources :sessions, only: [:new, :create, :destroy]
 
 end

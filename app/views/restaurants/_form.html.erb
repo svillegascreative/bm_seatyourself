@@ -1,0 +1,32 @@
+<%= form_for @restaurant do |f| %>
+  <%# render "shared/errors", object: @restaurant %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :capacity %>
+    <%= f.text_field :capacity %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :name %>
+  </div>
+  <div class="field">
+    <%= f.label :website %>
+    <%= f.text_field :website %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Save" %>
+  </div>
+
+<% end %>
