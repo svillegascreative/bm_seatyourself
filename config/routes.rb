@@ -4,11 +4,13 @@ Rails.application.routes.draw do
     resources :reservations, only: [:new, :create, :update, :edit, :destroy,]
   end
 
-    resources :users
+  resources :users do
+    resources :reservations, only: [:show, :update, :edit, :destroy]
+    resources :restaurants  #as owner
+  end
+
 # resources :restaurants, only: [:create, :update, :destroy, :index, :show]
 # end
-
-  resources :reservations
 
   resources :categories
 
