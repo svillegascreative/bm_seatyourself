@@ -1,3 +1,5 @@
 <%= render @restaurant %>
 
-<%= link_to "Edit", edit_restaurant_path %>
+<% if current_user %>
+  <%= link_to "Edit", edit_restaurant_path %>
+<% end %>
