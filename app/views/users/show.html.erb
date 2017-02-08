@@ -1,0 +1,23 @@
+<h1>Your Reservations/Dashboard</h1>
+
+<p>To create a new reservation, <%= link_to "view all restaurants!", restaurants_path %></p>
+<%# linking the choose a resturant to index page for all restaurants %>
+
+<p> Hi <%= @user.name %>! Here are all your reservations! Yum yum! </p>
+
+  <% @user.reservations.each do |reservation| %>
+    <div>Reservation at: <%= reservation.restaurant.name %> </div>
+    <div>Time: <%= reservation.datetime %> </div>
+    <div>Location: <%= reservation.restaurant.address %></div>
+    <div>Capcity: <%= reservation.seats %> </div>
+
+    <%= link_to "Edit", edit_restaurant_path(user.restaurants)%>
+
+<!-- restaurants/id/edit?  -->
+
+<%# need to make nested routes to these pathway %>
+
+<%# how to get to edit_owner_reservation_path? if it doesn't have a route but also no controller? %>
+
+    <%= link_to "Delete", edit_restaurant_reservation_path() , method: :delete, data: { confirm: "Are you sure you want to delete this?" } %>
+<% end %>
