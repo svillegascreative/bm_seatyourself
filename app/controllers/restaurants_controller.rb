@@ -10,10 +10,12 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
+    @reservation = Reservation.new
   end
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @reservation = Reservation.new
 
     if @restaurant.save
       redirect_to restaurants_url, notice: "Restaurant saved!"
@@ -47,11 +49,6 @@ class RestaurantsController < ApplicationController
   private
   def restaurant_params
     params.require(:restaurant).permit(:name, :location, :price, :description, :capacity)
-  end
-
-# this helper method maybe needs to go in applications_controller:
-  def find_restaurant
-    @restaurant = Restaurant.find(params[:id])
   end
 
 end
