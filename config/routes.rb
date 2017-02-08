@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :restaurants
 
-  resources :users, only: [:new, :create, :show, :delete]
+    resources :users do
+  resources :restaurants, only: [:create, :update, :destroy, :index, :show]
+  end
 
   resources :reservations
 
