@@ -6,8 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path, notice: "Signed up!!"
-    # redirecting to user_path which is dashboard
+      redirect_to restaurants_path, notice: "Signed up!!"
     else
       render "new"
     end
