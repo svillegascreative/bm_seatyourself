@@ -10,14 +10,20 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @user = current_user
+    @restaurant = Restaurant.find(params[:restaurant_id])
     datetime = DateTime.civil(params[:reservation][:year].to_i, params[:reservation][:month].to_i, params[:reservation][:day].to_i, params[:reservation][:hour].to_i)
-    if datetime > Time.zone.now && current_user
+
+    if @restaurant.available?(params[:seats].to_i, datetime) && datetime > Time.zone.now && current_user
       @reservation = Reservation.new(reservation_params)
       @reservation.datetime = datetime
       @reservation.restaurant_id = params[:restaurant_id]
+      @reservation.user_id = @user.id
       if @reservation.save
         redirect_to restaurants_url, notice: "Reservation made!"
       end
+    elsif @user == nil
+      redirect_to new_session_url, notice: "Please log-in to make a reservation."
     else
       redirect_to new_restaurant_reservation_url, notice: "This reservation is unavailable."
     end
