@@ -21,3 +21,38 @@
 
     <%= link_to "Delete", edit_restaurant_reservation_path() , method: :delete, data: { confirm: "Are you sure you want to delete this?" } %>
 <% end %>
+
+
+<h1>Your Reservations/Dashboard</h1>
+
+<p>To create a new reservation, <%= link_to "view all restaurants!", restaurants_path %></p>
+<%# linking the choose a resturant to index page for all restaurants %>
+
+<p> Hi <%= @user.name %>! Here are all your reservations! Yum yum! </p>
+
+  <% @user.reservations.each do |reservation| %>
+    <div>Reservation at: <%= reservation.restaurant.name %> </div>
+    <div>Time: <%= reservation.datetime %> </div>
+    <div>Location: <%= reservation.restaurant.address %></div>
+    <div>Capcity: <%= reservation.seats %> </div>
+    <%= link_to "Edit", edit_restaurant_path(user.restaurants)%>
+  <% end %>
+
+
+<!-- <p> Hi <%= @owner.name %>! Here are all your restaurants! Good for you! </p> -->
+
+<% @owned_restaurants.each do |restaurant| %>
+
+<h1>Reservations for <%= @owned_restaurants.name %></h1>
+
+<% @reservations.each do |reservation| %>
+
+<ul>
+  <li>Name: <%= reservation.user.name %></li>
+  <li>Party size: <%= reservation.party_size %></li>
+  <li>Time: <%= reservation.date_time %></li>
+</ul>
+
+
+<%= link_to "Delete", edit_restaurant_reservation_path(user.restaurants) , method: :delete, data: { confirm: "Are you sure you want to delete this?" } %>
+<% end %>

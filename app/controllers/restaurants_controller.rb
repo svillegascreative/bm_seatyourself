@@ -6,6 +6,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = find_restaurant
     @user = current_user
+    @reservation = Reservation.new
   end
 
   def new
@@ -37,6 +38,7 @@ class RestaurantsController < ApplicationController
       render :edit
     end
   end
+
 
   def destroy
     @restaurant = find_restaurant

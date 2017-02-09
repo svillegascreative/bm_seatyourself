@@ -1,0 +1,18 @@
+<h1> NEW </h1>
+
+
+<%= form_for [@user, @new_restaurant] do |f| %>
+  <div class="field">
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :address %><br>
+      <%= f.text_field :address %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+
+<% end %>
