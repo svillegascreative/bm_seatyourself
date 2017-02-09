@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :reservations
   end
 
-  resources :categories
+  resources :categories, only: [:index, :show]
 
   resources :sessions, only: [:new, :create, :destroy]
 
