@@ -6,4 +6,10 @@ class Restaurant < ApplicationRecord
 
   validates :name, :address, :capacity, :phone, presence: true
   validates :capacity, numericality: { equal_to: 100 }
+
+  def current_capacity
+    current_capacity = capacity - reservations.sum(:seats)
+  end
+
+
 end
