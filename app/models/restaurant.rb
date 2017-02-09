@@ -4,10 +4,17 @@ class Restaurant < ApplicationRecord
   belongs_to :user
 
   validates :name, :address, :capacity, :phone, presence: true
-  validates :capacity, numericality: { equal_to: 100 }
+  validates :capacity, numericality: true
 
-  def current_capacity
-    current_capacity = capacity - reservations.sum(:seats)
+  def available?(seats, time)
+    available_capacity(time) - seats >= 0
   end
 
+  def available_capacity(time)
+    capacity - reservations_at(time).sum(:seats)
+  end
+
+  def reservations_at(time)
+    reservations.where(datetime: time)
+  end
 end
