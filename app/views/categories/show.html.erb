@@ -2,7 +2,6 @@
 <h1> <%= @category.cuisine %> Cuisine</h1>
 
 <div "restaurants_by_cuisine">
-    <ul><%= @categories.restaurants.each do |restaurant| %>
-      <li> <%= link_to restaurant.name, restaurant %> </li>
+      <% @restaurants.each do |restaurant| %>
+      <p><%= link_to restaurant.name, restaurant %> </p>
       <% end %>
-    </ul>
