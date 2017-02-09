@@ -1,0 +1,7 @@
+<% @reservations.each do |reservation| %>
+  <p>
+    Seats: <%= reservation.seats %><br/>
+    Time: <%= reservation.datetime %><br/>
+    Restaurant ID: <%= reservation.restaurant_id %><br/>
+  </p>
+<% end %>

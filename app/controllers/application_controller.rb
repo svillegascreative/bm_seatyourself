@@ -14,7 +14,12 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
+  
+# this helper method maybe needs to go in applications_controller:
+  def find_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
 
   helper_method :current_user
-  
+
 end

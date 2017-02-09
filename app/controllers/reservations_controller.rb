@@ -1,14 +1,20 @@
 class ReservationsController < ApplicationController
 
+  def index
+    @reservations = Reservation.all
+  end
+
   def new
     @reservation = Reservation.new
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def create
-    @reservation = current_user.reservations.build(params[:reservation])
-    datetime = DateTime.civil(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i,
-                            params[:date][:hours].to_i, 0, 0)
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @reservation = Reservation.new(reservation_params)
+    datetime = DateTime.civil(params[:reservation][:year].to_i, params[:reservation][:month].to_i, params[:reservation][:day].to_i, params[:reservation][:hour].to_i)
     @reservation.datetime = datetime
+    @reservation.restaurant_id = params[:restaurant_id]
 
     if @reservation.save
       redirect_to restaurants_url, notice: "Reservation made!"
@@ -30,6 +36,10 @@ class ReservationsController < ApplicationController
 # this helper method maybe needs to go in applications_controller:
   def find_reservation
     @reservation = Reservation.find(params[:id])
+  end
+
+  def reservation_params
+    params.require(:reservation).permit(:seats, :year, :month, :day, :hour)
   end
 
 end
