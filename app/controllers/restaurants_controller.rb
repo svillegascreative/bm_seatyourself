@@ -10,6 +10,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = find_restaurant
     @user = current_user
+    @owned_restaurants = Restaurant.where("owner_id = ?", params[:id])
   end
 
   def new
@@ -48,12 +49,6 @@ class RestaurantsController < ApplicationController
     @restaurant = find_restaurant
     @restaurant.destroy
 # this needs to redirect to manage restaurants path
-  end
-
-  def owned_restaurants
-    owner = current_user.id
-    owner_id = owner.to_i
-    owned_restaurants = Restaurant.find(owner_id)
   end
 
   def find_restaurant
