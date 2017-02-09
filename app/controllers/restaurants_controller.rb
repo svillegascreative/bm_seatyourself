@@ -1,4 +1,8 @@
 class RestaurantsController < ApplicationController
+
+  helper_method :owned_restaurants
+  helper_method :find_restaurant
+
   def index
     @restaurants = Restaurant.all
   end
@@ -45,6 +49,17 @@ class RestaurantsController < ApplicationController
     @restaurant.destroy
 # this needs to redirect to manage restaurants path
   end
+
+  def owned_restaurants
+    owner = current_user.id
+    owner_id = owner.to_i
+    owned_restaurants = Restaurant.find(owner_id)
+  end
+
+  def find_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
+
 
   private
   def restaurant_params

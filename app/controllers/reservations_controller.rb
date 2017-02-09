@@ -2,6 +2,8 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.all
+    @restaurant_reservations = Reservation.where("restaurant_id = ?", params[:id])
+
   end
 
   def new
@@ -44,6 +46,10 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = find_reservation
     @reservation.destroy
+  end
+
+  def find_reservation
+    @reservation = Reservation.find(params[:id])
   end
 
   private
