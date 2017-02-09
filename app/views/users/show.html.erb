@@ -10,14 +10,21 @@
     <div>Time: <%= reservation.datetime %> </div>
     <div>Location: <%= reservation.restaurant.address %></div>
     <div>Capcity: <%= reservation.seats %> </div>
-
-    <%= link_to "Edit", edit_restaurant_path(user.restaurants)%>
-
-<!-- restaurants/id/edit?  -->
-
-<%# need to make nested routes to these pathway %>
-
-<%# how to get to edit_owner_reservation_path? if it doesn't have a route but also no controller? %>
-
-    <%= link_to "Delete", edit_restaurant_reservation_path() , method: :delete, data: { confirm: "Are you sure you want to delete this?" } %>
 <% end %>
+
+<p>To edit reservation: <%= link_to "Edit", edit_user_reservation_path(@user.id) %></p>
+
+
+
+<!-- method: :delete, data: { confirm: "Are you sure you want to delete this?" } %> -->
+
+
+<%# if @user.owner %>
+<h1> Your restaurants: </h1>
+    <div>Restaurant name: <%= owned_restaurants.name %> </div>
+    <div>Total capacity: <%= owned_restaurants.capacity %> </div>
+    <div>Current available capacity: <%= owned_restaurants.current_capacity %> </div>
+    <p>Edit this restaurant:  <%= link_to "Edit", edit_restaurant_path(@user.id)%></p>
+
+
+<h2>Reservations for <%= owned_restaurants.name %>:</h2>
