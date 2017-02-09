@@ -1,0 +1,6 @@
+<h1> All Cuisines </h1>
+
+<% @categories.each do |category| %>
+  <p>
+    <%=link_to category.cuisine, category %> </P>
+    <% end %>
