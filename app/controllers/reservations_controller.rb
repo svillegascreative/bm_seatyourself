@@ -2,8 +2,12 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.all
-    @restaurant_reservations = Reservation.where("restaurant_id = ?", params[:restaurant_id])
+    @restaurant_reservations = Reservation.where("restaurant_id = ?", params[:id])
+  end
 
+  def show
+    @reservation = Reservation.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def new
@@ -22,7 +26,7 @@ class ReservationsController < ApplicationController
       @reservation.restaurant_id = params[:restaurant_id]
       @reservation.user_id = @user.id
       if @reservation.save
-        redirect_to restaurants_url, notice: "Reservation made!"
+        redirect_to restaurant_reservation_url(@restaurant, @reservation), notice: "Reservation made!"
       end
     elsif @user == nil
       redirect_to new_session_url, notice: "Please log-in to make a reservation."
