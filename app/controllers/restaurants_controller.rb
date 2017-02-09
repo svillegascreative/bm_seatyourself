@@ -48,7 +48,7 @@ class RestaurantsController < ApplicationController
   def destroy
     @restaurant = find_restaurant
     @restaurant.destroy
-# this needs to redirect to manage restaurants path
+    redirect_to restaurants_url, notice: "Deleted!"
   end
 
   def find_restaurant
