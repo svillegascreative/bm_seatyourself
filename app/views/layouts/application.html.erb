@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SeatYourself - Make Reservations at Tthe Best Restaurants</title>
+  <title>SeatYourself - Make Reservations at The Best Restaurants</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -22,7 +22,7 @@
       </ul>
     </nav>
 
-    <div>
+    <div class="login-bar">
       <% if current_user %>
         Hello, <%= current_user.name %> !
         <%= link_to "Log out", session_path("current"), method: :delete %>
@@ -34,11 +34,11 @@
   </header>
 
 
-
-<%= yield %>
+<main>
+  <%= yield %>
+</main>
 
   <footer>
-    <hr />
     This awesome app brought to you by Team Lone Panda!
   </footer>
 

@@ -1,0 +1,109 @@
+@import "normalize.scss";
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script:700');
+
+// MIXINS & VARIABLES --------------------------------------------------
+
+/* typography */
+$basefont: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$logo-font: "Dancing Script";
+$header-font: "";
+
+
+/* colors */
+$color-0: #FCFCFC;
+$color-1: #DAD1DD;
+$color-2: #AC97B4;
+$color-3: #866593;
+$color-4: #633974;
+
+
+// GENERAL -------------------------------------------------------------
+html {
+  height: 100%;
+  font-family: $basefont;
+  background: $color-0;
+  position: relative;
+}
+body {
+  height: 100%;
+}
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+a {
+  color: $color-4;
+  text-decoration: none;
+}
+a:hover,
+a:active,
+a:visited {
+  color: $color-3;
+}
+
+
+header,
+footer {
+  overflow: hidden;
+  background: #444;
+  padding: 1em;
+  color: #fff;
+  a,
+  a:hover,
+  a:active,
+  a:visited {
+    color: $color-2;
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+// HEADER
+header {
+  h1 {
+    font-family: $logo-font;
+    color: $color-0;
+    font-size: 3.5em;
+    margin: 0 0 0.2em;
+    text-shadow: 2px 2px 4px $color-4;
+  }
+}
+
+// NAV
+nav {
+  float: left;
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    display: inline-block;
+  }
+}
+
+
+// LOGIN
+.login-bar {
+  float: right;
+}
+
+
+// FOOTER
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+}
+
+// FLASH
+.alert {
+  color: firebrick;
+}
+.notice {
+  color: green;
+}
