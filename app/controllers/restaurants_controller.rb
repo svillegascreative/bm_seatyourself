@@ -9,7 +9,6 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = find_restaurant
-    @user = current_user
   end
 
   def new
