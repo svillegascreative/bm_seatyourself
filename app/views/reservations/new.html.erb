@@ -1,7 +1,7 @@
 <h3>Reserve Your Table</h3>
 
 <%= form_for([@restaurant, @reservation]) do |f| %>
-  <%= render "shared/errors", object: [@restaurant, @reservation] %>
+  <%# render "shared/errors", object: [@restaurant, @reservation] %>
 
   <div class="field">
     <%= f.label :seats %>
@@ -9,7 +9,7 @@
   </div>
   <div class="field">
     <%= f.label :year %>
-    <%= f.select :year, options_for_select(2017..2018) %>
+    <%= f.select :year, options_for_select((2017)..2018) %>
   </div>
   <div class="field">
     <%= f.label :month %>
