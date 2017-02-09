@@ -23,14 +23,6 @@ ActiveRecord::Schema.define(version: 20170209010840) do
     t.integer "restaurant_id"
   end
 
-  create_table "owners", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "reservations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "restaurant_id"
