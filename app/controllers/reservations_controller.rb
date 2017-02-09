@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.all
-    @restaurant_reservations = Reservation.where("restaurant_id = ?", params[:id])
+    @restaurant_reservations = Reservation.where("restaurant_id = ?", params[:restaurant_id])
 
   end
 

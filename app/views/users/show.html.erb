@@ -12,7 +12,7 @@
     <div>Capcity: <%= reservation.seats %> </div>
 <% end %>
 
-<p>To edit reservation: <%= link_to "Edit", edit_user_reservation_path(@user.id) %></p>
+<p>To edit reservation: <%= link_to "Edit", edit_restaurant_reservation_path(@user.id) %></p>
 
 
 
@@ -20,10 +20,11 @@
 
 
 <%# if @user.owner %>
+
 <h1> Your restaurants: </h1>
-    <div>Restaurant name: <%= owned_restaurants.name %> </div>
-    <div>Total capacity: <%= owned_restaurants.capacity %> </div>
-    <div>Current available capacity: <%= owned_restaurants.current_capacity %> </div>
+    <div>Restaurant name: <%= @owned_restaurants.name %> </div>
+    <div>Total capacity: <%= @owned_restaurants.capacity %> </div>
+    <div>Current available capacity: <%= @owned_restaurants.current_capacity %> </div>
     <p>Edit this restaurant:  <%= link_to "Edit", edit_restaurant_path(@user.id)%></p>
 
 
