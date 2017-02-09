@@ -10,5 +10,4 @@ class Restaurant < ApplicationRecord
     current_capacity = capacity - reservations.sum(:seats)
   end
 
-
 end

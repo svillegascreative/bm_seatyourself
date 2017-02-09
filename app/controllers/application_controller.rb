@@ -23,12 +23,18 @@ class ApplicationController < ActionController::Base
     @reservation = Reservation.find(params[:id])
   end
 
+# change the calling of this from views:
   def owned_restaurants
     owner = current_user.id
     owner_id = owner.to_i
     owned_restaurants = Restaurant.find(owner_id)
   end
 
+  def restaurant_reservations
+    @restaurant_reservations = Reservation.where("restaurant_id = ?", params[:restaurant_id])
+  end
+
+  helper_method :restaurant_reservations
   helper_method :find_restaurant
   helper_method :owned_restaurants
   helper_method :current_user

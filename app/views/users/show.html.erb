@@ -12,7 +12,7 @@
     <div>Capcity: <%= reservation.seats %> </div>
 <% end %>
 
-<p>To edit reservation: <%= link_to "Edit", edit_user_reservation_path(@user.id) %></p>
+<p>To edit reservation: <%= link_to "Edit", edit_restaurant_reservation_path(@user.id) %></p>
 
 
 
@@ -27,4 +27,4 @@
     <p>Edit this restaurant:  <%= link_to "Edit", edit_restaurant_path(@user.id)%></p>
 
 
-<h2>Reservations for <%= owned_restaurants.name %>:</h2>
+<h3><%= link_to "View Reservations", restaurant_reservations_path(@user.id) %> for <%= owned_restaurants.name %></h3>
