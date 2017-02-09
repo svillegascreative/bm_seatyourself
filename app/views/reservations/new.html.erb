@@ -1,7 +1,7 @@
 <h3>Reserve Your Table</h3>
 
 <%= form_for([@restaurant, @reservation]) do |f| %>
-  <%# render "shared/errors", object: @restaurant %>
+  <%= render "shared/errors", object: [@restaurant, @reservation] %>
 
   <div class="field">
     <%= f.label :seats %>
