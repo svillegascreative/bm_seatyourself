@@ -19,12 +19,14 @@
       <ul>
         <li><%= link_to "View all Restaurants", restaurants_path %></li>
         <li>| <%= link_to "View all Cuisines", categories_path %></li>
+
       </ul>
     </nav>
 
     <div class="login-bar">
       <% if current_user %>
         Hello, <%= current_user.name %> !
+        <%= link_to "My Dashboard", current_user %> |
         <%= link_to "Log out", session_path("current"), method: :delete %>
       <% else %>
         <%= link_to "Log in", new_session_path %>

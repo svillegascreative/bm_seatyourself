@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @owned_restaurants = Restaurant.where("owner_id = ?", params[:id])
+    @owned_restaurants = Restaurant.where("user_id = ?", params[:id])
     @restaurant = Restaurant.all
   end
 
