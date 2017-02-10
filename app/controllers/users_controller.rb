@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 
-  def index
-    render :layout => "application"
-  end
+
 
   def new
     @user = User.new
