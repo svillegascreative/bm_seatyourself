@@ -9,7 +9,9 @@
 <body>
 
   <% flash.each do |name, message| %>
+    <div class="flash">
     <%= content_tag :div, message, class: name %>
+    </div>
   <% end %>
 
   <header>
