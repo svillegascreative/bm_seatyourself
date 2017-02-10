@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    render :layout => "home"
+    render :layout => "application"
   end
 
   def new

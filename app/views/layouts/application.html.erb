@@ -32,9 +32,13 @@
     </div>
   </header>
 
-<main>
-  <%= yield %>
-</main>
+  <% if root_url %>
+    <%= render "home" %>
+  <% else %>
+    <main>
+      <%= yield %>
+    </main>
+  <% end %>
 
   <footer>
     This awesome app brought to you by Team Lone Panda!
