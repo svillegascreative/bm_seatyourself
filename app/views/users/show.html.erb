@@ -3,7 +3,7 @@
 <p>To create a new reservation, <%= link_to "view all restaurants!", restaurants_path %></p>
 <%# linking the choose a resturant to index page for all restaurants %>
 
-<p> Hi <%= @user.name %>! you have <%= @user.reservations.count %> reservations! Yum yum! </p>
+<p> Hi <%= @user.name %>! You have <%= @user.reservations.count %> reservations! Yum yum! </p>
 
   <% @user.reservations.each do |reservation| %>
     <div>Reservation at: <%= reservation.restaurant.name %> </div>
