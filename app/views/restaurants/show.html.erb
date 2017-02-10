@@ -2,12 +2,12 @@
 
 <%= render @restaurant %>
 
-<% if @restaurant.user_id == current_user.id %>
-  <p><%= link_to "Edit Your Restaurant", edit_restaurant_path(@restaurant) %></br>
+<%= link_to "Make A Reservation", new_restaurant_reservation_url(@restaurant.id) %><br />
+
+<% if current_user && @restaurant.user_id == current_user.id %>
+  <%= link_to "Edit Your Restaurant", edit_restaurant_path(@restaurant) %></br>
   <%= link_to "Delete Your Restaurant", @restaurant, method: :delete, data:
-    { confirm: "Are you sure you want to delete this?" } %></p>
-<% elsif current_user %>
-  <p><%= link_to "Make a reservation", new_restaurant_reservation_url(@restaurant.id) %></p>
+    { confirm: "Are you sure you want to delete this?" } %>
 <% end %>
 
 <% if current_user == nil %>
