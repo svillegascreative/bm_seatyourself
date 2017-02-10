@@ -10,18 +10,20 @@
     <div>Time: <%= reservation.datetime %> </div>
     <div>Location: <%= reservation.restaurant.address %></div>
     <div>Capcity: <%= reservation.seats %> </div>
+    <p>To edit reservation: <%= link_to "Edit", edit_restaurant_reservation_path(@user.id) %></p>
 <% end %>
 
-<p>To edit reservation: <%= link_to "Edit", edit_restaurant_reservation_path(@user.id) %></p>
+
 
 
 
 <!-- method: :delete, data: { confirm: "Are you sure you want to delete this?" } %> -->
 
 
-<%# if @user.owner %>
 
-<h1> Your restaurants: </h1>
+
+<h4> Your restaurants: (<%= @user.restaurants.count %>) </h4>
+
 <ul>
 <% @owned_restaurants.each do |restaurant| %>
 
