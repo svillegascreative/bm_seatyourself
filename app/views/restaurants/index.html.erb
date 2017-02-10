@@ -4,7 +4,8 @@
 <% if @owners.include? current_user %>
   <h2><%= link_to "Add a Restaurant", new_restaurant_path %></h2>
 <% elsif current_user %>
-  Do you own a restaurant? <%= link_to "Sign up", new_user_url %> as an owner to list it here!
+  Do you own a restaurant? <%= link_to "Log out", session_path("current"), method: :delete %>
+and sign up as an owner to list it here!
 <% end %>
 
 <% if current_user == nil %>
