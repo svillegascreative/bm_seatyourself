@@ -1,7 +1,7 @@
 <h1>Reservations details</h1>
 
-<p>
-  You have a reservation at <%= @restaurant.name %>.
-</p>
+<p>You have a reservation at <%= @restaurant.name %>.</p>
 <p>Date: <%= @reservation.datetime %></p>
 <p>Party of: <%= @reservation.seats %></p>
+
+<%= link_to "Edit", edit_restaurant_reservation_path(@restaurant, @reservation) %>

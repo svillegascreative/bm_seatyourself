@@ -11,16 +11,15 @@ class RestaurantsController < ApplicationController
     @restaurant = find_restaurant
     @user = current_user
     @owned_restaurants = Restaurant.where("owner_id = ?", params[:id])
+    @reservations = @restaurant.reservations
   end
 
   def new
     @restaurant = Restaurant.new
-    @reservation = Reservation.new
   end
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    @reservation = Reservation.new
 
     if @restaurant.save
       redirect_to restaurants_url, notice: "Restaurant saved!"

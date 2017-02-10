@@ -1,12 +1,16 @@
 class ReservationsController < ApplicationController
+  before_action do
+    @restaurant = Restaurant.find(params[:restaurant_id])
+  end
 
   def index
-    @reservations = Reservation.all
+    @reservations = @restaurant.reservations
     @restaurant_reservations = Reservation.where("restaurant_id = ?", params[:id])
   end
 
   def show
-    @reservation = Reservation.find(params[:id])
+    @reservation = find_reservation
+    ensure_restaurant_match
     @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
@@ -36,11 +40,15 @@ class ReservationsController < ApplicationController
 
   end
 
+  def edit
+    @reservation = find_reservation
+  end
+
   def update
     @reservation = find_reservation
 
-    if @reservation.update_attributes(reservation_params)
-      redirect_to restaurant_url, notice: "Reservation successfully updated!"
+    if @reservation.update(reservation_params)
+      redirect_to restaurant_reservation_url(@restaurant, @reservation), notice: "Reservation successfully updated!"
     else
       flash.now[:alert] = "Failed to update reservation."
       render :edit
@@ -54,6 +62,12 @@ class ReservationsController < ApplicationController
 
   def find_reservation
     @reservation = Reservation.find(params[:id])
+  end
+
+  def ensure_restaurant_match
+    if @reservation.restaurant != @restaurant
+      not_found
+    end
   end
 
   private
