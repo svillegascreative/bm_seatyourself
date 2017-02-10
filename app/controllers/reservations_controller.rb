@@ -35,7 +35,7 @@ class ReservationsController < ApplicationController
     elsif @user == nil
       redirect_to new_session_url, notice: "Please log-in to make a reservation."
     else
-      redirect_to new_restaurant_reservation_url, notice: "This reservation is unavailable."
+      redirect_to new_restaurant_reservation_url, alert: "This reservation is unavailable."
     end
 
   end

@@ -1,14 +1,12 @@
-<h3> Reservations for this restaurant </h3>
+<h3> Existing Reservations</h3>
 
+<% @reservations.each do |reservation| %>
 
-<% @restaurant_reservations.each do |reservation| %>
-
+    <% if reservation.datetime > DateTime.now %>
     <p>
-      Name: <%= reservation.restaurant.name %><br/>
-      Seats: <%= reservation.seats %><br/>
-      Time: <%= reservation.datetime %><br/>
-      Restaurant ID: <%= reservation.restaurant_id %><br/>
-      User ID: <%= reservation.user_id %>
+      <b>Name:</b> <%= reservation.restaurant.name %><br/>
+      <b>Seats:</b> <%= reservation.seats %><br/>
+      <b>Time:</b> <%= reservation.datetime %><br/>
     </p>
-
+    <% end %>
 <% end %>

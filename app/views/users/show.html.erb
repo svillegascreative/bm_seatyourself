@@ -3,13 +3,13 @@
 <p>To create a new reservation, <%= link_to "view all restaurants!", restaurants_path %></p>
 <%# linking the choose a resturant to index page for all restaurants %>
 
-<p> Hi <%= @user.name %>! You have <%= @user.reservations.count %> reservations! Yum yum! </p>
+<p> Hi <%= @user.name %>! You have <%= @user.reservations.count %> reservation(s)! Yum yum! </p>
 
   <% @user.reservations.each do |reservation| %>
     <div>Reservation at: <%= reservation.restaurant.name %> </div>
     <div>Time: <%= reservation.datetime %> </div>
     <div>Location: <%= reservation.restaurant.address %></div>
-    <div>Capcity: <%= reservation.seats %> </div>
+    <div>Party Size: <%= reservation.seats %> </div>
     <p>To edit reservation: <%= link_to "Edit", edit_restaurant_reservation_path(@user.id) %></p>
 <% end %>
 
@@ -29,6 +29,8 @@
 
     <li>Restaurant name: <%= restaurant.name %></br>
     Total capacity: <%= restaurant.capacity %>
-    <p><%= link_to "Update this restaurant", edit_restaurant_path %></p>
+    <p><%= link_to "Update this restaurant", edit_restaurant_path %><br />
+    <%= link_to "View reservations", restaurant_reservations_url(:restaurant_id => restaurant.id) %></p>
+
 <% end  %>
 <ul>
