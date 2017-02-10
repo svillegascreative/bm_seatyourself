@@ -21,7 +21,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @owned_restaurants = Restaurant.where("owner_id = ?", params[:id])
     @restaurant = Restaurant.all
-
   end
 
   private
