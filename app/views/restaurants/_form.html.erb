@@ -26,6 +26,10 @@
     <%= f.text_field :website %>
   </div>
   <div class="field">
+    <%= f.label :image_url, 'Cover Page' %>
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="field">
     <%= f.label :category %>
     <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :cuisine) %>
 
