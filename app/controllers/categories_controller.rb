@@ -7,8 +7,4 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @restaurants = Restaurant.where("category_id = ?", params[:id])
   end
-
-
-
-
 end
