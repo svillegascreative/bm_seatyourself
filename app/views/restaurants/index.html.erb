@@ -1,10 +1,10 @@
 <h1> Restaurants </h1>
 
 
-<% if @info.include? current_user %>
+<% if @owners.include? current_user %>
   <h2><%= link_to "Add a Restaurant", new_restaurant_path %></h2>
 <% elsif current_user %>
-  <%= link_to "Sign up", new_user_url %> to make a restaurant!
+  Do you own a restaurant? <%= link_to "Sign up", new_user_url %> as an owner to list it here!
 <% end %>
 
 <% if current_user == nil %>

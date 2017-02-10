@@ -5,8 +5,9 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
-    @info = User.where(owner: true)
-      # @info.each do |user|
+    @owners = User.where(owner: true)
+      # below is method to easily call owner id -- not used but saved just in case:
+      # @owner.each do |user|
       # @restaurant_owner_id = user.id
       # end
   end
@@ -16,7 +17,7 @@ class RestaurantsController < ApplicationController
     @user = current_user
     # @owned_restaurants = Restaurant.where("owner_id = ?", params[:id])
     @reservations = @restaurant.reservations
-    @info = User.where(owner: true)
+    @owners = User.where(owner: true)
   end
 
   def new
