@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  def index
+    render :layout => "home"
+  end
+
   def new
     @user = User.new
   end
