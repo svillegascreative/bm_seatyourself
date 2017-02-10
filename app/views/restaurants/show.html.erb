@@ -2,7 +2,7 @@
 
 <%= render @restaurant %>
 
-<% if @owners.include? current_user %>
+<% if @restaurant.user_id == current_user.id %>
   <p><%= link_to "Edit Your Restaurant", edit_restaurant_path(@restaurant) %></br>
   <%= link_to "Delete Your Restaurant", @restaurant, method: :delete, data:
     { confirm: "Are you sure you want to delete this?" } %></p>

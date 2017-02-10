@@ -37,6 +37,10 @@ class RestaurantsController < ApplicationController
 
   def edit
     @restaurant = find_restaurant
+    @user = current_user
+    unless current_user.id == @restaurant.user_id
+      redirect_to restaurants_url, :alert => "Access denied."
+    end
   end
 
   def update
@@ -62,7 +66,7 @@ class RestaurantsController < ApplicationController
 
   private
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :capacity, :phone, :description, :website)
+    params.require(:restaurant).permit(:name, :address, :capacity, :phone, :description, :website, :user_id)
   end
 
 end
